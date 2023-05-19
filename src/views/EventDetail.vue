@@ -24,7 +24,7 @@
                 this.singleItem = finalRes;
             },
             convertDatetime(scheduledTime) {
-                var convertedDate = new Date(scheduledTime * 1000)
+                var convertedDate = new Date(scheduledTime)
                 return convertedDate
             }
         },
