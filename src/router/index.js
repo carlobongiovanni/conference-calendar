@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import PaginatedHomeView from '../views/PaginatedHomeView.vue'
 import EventDetail from '../views/EventDetail.vue'
 import NotFound from '../views/NotFound.vue'
 
@@ -10,6 +11,12 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
+    },
+    {
+      path: '/paginatedEvents/:skip',
+      props: true,
+      name: 'paginatedHomeView',
+      component: PaginatedHomeView
     },
     {
       path: '/topics',
