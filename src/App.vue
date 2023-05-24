@@ -1,7 +1,7 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import SpaHeader from './components/SpaHeader.vue'
-import PageDescription from './components/PageDescription.vue'
+import { RouterLink, RouterView } from 'vue-router';
+import SpaHeader from './components/SpaHeader.vue';
+import PageDescription from './components/PageDescription.vue';
 </script>
 
 <template>
