@@ -3,7 +3,7 @@
     <ul>
       <li v-for="item in listItems">
         <router-link :to="{ name: 'eventDetail', params: { id: item._id } }">
-          {{ item.title }} - from {{ item.scheduled_time_from }} to {{ item.scheduled_time_to }}, in {{ item.location }}
+          {{ item.title }} - from {{ convertDatetime(item.scheduled_time_from) }} to {{ convertDatetime(item.scheduled_time_to) }}, in {{ item.location }}
         </router-link>
       </li>
     </ul>
@@ -60,6 +60,10 @@ export default {
       if (finalRes[0].totalCount) {
         this.pageCounter = finalRes[0].totalCount
       }
+    },
+    convertDatetime(scheduledTime) {
+        var convertedDate = new Date(scheduledTime)
+        return convertedDate
     },
   },
   mounted() {

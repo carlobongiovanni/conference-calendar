@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router';
 import SpaHeader from './components/SpaHeader.vue';
 import PageDescription from './components/PageDescription.vue';
+import Analytics from './components/Analytics.vue';
 </script>
 
 <template>
@@ -20,7 +21,7 @@ import PageDescription from './components/PageDescription.vue';
 
   <RouterView />
   <PageDescription msg="Copyright @cb | Contact us" />  
-
+  <Analytics />
 </template>
 
 <style scoped>
