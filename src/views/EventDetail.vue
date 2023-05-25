@@ -2,6 +2,9 @@
     <div class="main">
       <ul>
         <li>
+            <div>
+                <img :src="item.logo" alt="Logo of the event" width="64" />
+            </div>
             {{ item.title }} is scheduled from {{ convertDatetime(item.scheduled_time_from) }} to {{ convertDatetime(item.scheduled_time_to) }}.
             <div>
                 <br/>
