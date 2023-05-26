@@ -19,18 +19,38 @@
                 <br/>
                 {{ item.cfp ? item.cfp.link : '' }}, up to {{ item.cfp ? convertDatetime(item.cfp.untilDate) : 'N/A' }}    
             </div>
-            
+            <div>
+                Add to Calendar functionality:
+            <add-to-calendar-button 
+                :name="item.title"
+                description="A nice description does not hurt"
+                :startDate="convertDatetimeInDays(item.scheduled_time_from)"
+                :endDate="convertDatetimeInDays(item.scheduled_time_to)"
+                :location="item.location"
+                options="['Apple','Google','iCal','Microsoft365','Outlook.com','Yahoo']"
+                trigger="click"
+                inline
+                listStyle="modal"
+                iCalFileName="Reminder-Event"
+                >
+            </add-to-calendar-button>
+            </div>
+            <br />
+
         </li>
       </ul>
     </div>
 </template>
 
 <script>
+    import 'add-to-calendar-button';
+
     export default {
         props: ["id"],
         data() {
             return {
                 item: {},
+                is_data_fetched: false
             }
         },
         methods: {
@@ -39,16 +59,21 @@
                 const res = await fetch(FULL_URL);
                 const finalRes = await res.json();
                 this.item = finalRes;
+                this.is_data_fetched = true;
             },
             convertDatetime(scheduledTime) {
                 var convertedDate = new Date(scheduledTime)
                 return convertedDate
             },
+            convertDatetimeInDays(scheduledTime) {
+                var convertDate = new Date(parseInt(scheduledTime)).toISOString().split('T')[0]
+                return convertDate
+            },
             checkEmptyObject(object) {
                 return object === null
             }
         },
-        mounted() {
+        beforeMount() {
             this.getItem()
         }
     };

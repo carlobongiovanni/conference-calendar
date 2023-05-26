@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "add-to-calendar-button": "^2.2.9",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6",
     "vuejs-paginate-next": "^1.0.2"
